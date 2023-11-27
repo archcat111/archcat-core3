@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.cat.core</groupId>
+	<artifactId>core-parent3</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>org.cat.support</groupId>
+  <artifactId>support-security3</artifactId>
+  <packaging>pom</packaging>
+  
+  <description>org.cat框架下基于的SpringBoot3项目的扩展 - 安全</description>
+  
+  <modules>
+  	<module>support-security3-generator-password</module>
+    <module>support-security3-generator-spring</module>
+    <module>support-security3-generator-session</module>
+  </modules>
+  
+  <properties>
+	  <support-security3-generator-password.version>1.0.0-SNAPSHOT</support-security3-generator-password.version>
+	  <support-security3-generator-session.version>1.0.0-SNAPSHOT</support-security3-generator-session.version>
+	  <support-security3-generator-spring.version>1.0.0-SNAPSHOT</support-security3-generator-spring.version>
+	<!-- support -->
+	<support-db3.version>1.0.0-SNAPSHOT</support-db3.version>
+  </properties>
+  
+  <dependencyManagement>
+  	<dependencies>
+  		<!-- 自己 -->
+  		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-security3-generator-password</artifactId>
+			<version>${support-security3-generator-password.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-security3-generator-session</artifactId>
+			<version>${support-security3-generator-session.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-security3-generator-spring</artifactId>
+			<version>${support-security3-generator-spring.version}</version>
+		</dependency>
+		
+		<!-- core -->
+		
+		<!-- support -->
+		
+		<!-- jar，在parent中管理版本 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-crypto</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-ldap</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-cas</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-client</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-resource-server</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-openid</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		
+		<!-- session -->
+		<dependency>
+		    <groupId>org.springframework.session</groupId>
+		    <artifactId>spring-session-core</artifactId>
+		    <version>${spring-session.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-data-redis</artifactId>
+			<version>${spring-session.version}</version>
+		</dependency>
+		<!-- jwt -->
+		<dependency>
+		    <groupId>com.auth0</groupId>
+		    <artifactId>java-jwt</artifactId>
+		    <version>3.18.2</version>
+		</dependency>
+		
+		
+		<!-- 中间件 redis jedis -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>${spring.data.redis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${jedis.version}</version>
+		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+
+</project>

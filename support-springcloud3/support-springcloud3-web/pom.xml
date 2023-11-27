@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-springcloud3</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>support-springcloud3-web</artifactId>
+	<packaging>jar</packaging>
+
+	<description>org.cat框架v3.0下基于springcloud对web的扩展</description>
+
+	<dependencies>
+		<!-- core -->
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-util3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-exception3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-web3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-web3-log</artifactId>
+		</dependency>
+
+		<!-- support-springboot3 optional -->
+		<!-- Support-web3 optional -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-web3-generator</artifactId>
+		</dependency>
+	<!-- 	<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springboot3-starter</artifactId>
+		</dependency> -->
+		
+		<!-- Spring Cloud -->
+		<!-- <dependency>
+	     	<groupId>com.alibaba.cloud</groupId>
+	     	<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+	     	<optional>true</optional>
+	 	</dependency>
+	 	<dependency>
+		    <groupId>com.alibaba.cloud</groupId>
+		    <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+		    <optional>true</optional>
+		</dependency> -->
+		
+		<!-- Feign -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
+	</dependencies>
+</project>

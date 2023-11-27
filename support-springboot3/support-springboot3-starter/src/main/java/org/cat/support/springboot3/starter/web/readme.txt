@@ -1,0 +1,36 @@
+1：自定义用于下载的MultipartResolver
+2：自定义cors
+3：自定义resp.generator
+	3.1：是否开启downloadGenerator（默认不开启）
+		3.1.1：如果开启，则在继承AbsRespController的用户自定义Controller中可以直接使用downloadGenerator工具类提供的一系列用于文件下载的方法
+				其中包括：
+					a：返回ResponseEntity的方式
+					b：直接将IO流写入HttpServletResponse、没有返回值的方法
+		3.2.1：如果不开启（默认），则不能使用downloadGenerator工具，因为该对象为null
+	3.2：是否开启resultRespGenerator（默认开启）
+		3.2.1：如果开启，则在继承AbsRespController的用户自定义Controller中可以直接使用resultRespGenerator工具类提供的一系列用于标准化返回数据的方法
+				直接返回ResultResp对象
+					其中会自动转换：
+							正常返回的JavaBean、List等数据结果
+							正常返回的自定义标准异常
+							系统抛出的自定义以及非自定义异常
+		3.2.2：如果不开启，则请不要继承AbsRespController，而是选择继承AbsBaseController，并自行处理返回结果
+				因为AbsRespController中有统一处理系统抛出异常的方法，该方法使用到了resultRespGenerator
+	3.3：是否开启springRespGenerator（默认不开启）
+		3.3.1：如果开启，则在继承AbsRespController的用户自定义Controller中可以直接使用SpringRespGenerator工具类提供的一系列用于返回数据的方法
+				统一返回body类型为ResultResp
+				该工具类，除了处理返回数据、系统异常、自定义异常，还可以处理：HttpStatus、contentType
+				其中包括：
+						a：直接写入HttpServletResponse，没有返回值
+							统一返回类型为ResultResp
+						b：返回ResponseEntity的方式
+							统一返回类型为ResultResp
+	3.4：是否开启WsRsRespGenerator（默认不开启）
+		3.4.1：如果开启，则在继承AbsRespController的用户自定义Controller中可以直接使用WsRsRespGenerator工具类提供的一系列用于返回数据的方法
+			返回一个Response对象，可以设置HttpStatus
+			统一返回body类型为ResultResp
+4：自定义resp.converter（默认全局不开启）
+	4.1：当全局开启并且设置converterDateToString=true（默认为true），则所有的返回值中自动将Date转换为字符串类型
+	4.2：当全局开启并且设置converterLongToString=true（默认为true），则所有的返回值中自动将Long转换为字符串类型
+						
+			

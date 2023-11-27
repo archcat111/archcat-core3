@@ -1,0 +1,100 @@
+cat:
+    support3:
+        id:
+            generators:
+                bussinessUserIdGenerator: 
+                    enabled: true
+                    type: pool-snowflake
+        exception: 
+            projectCode: 100100
+        web:
+            security:
+                password:
+                    enabled: true
+                    bcrypt: true
+        db:
+            druid:
+                enabled: true
+                druidDataSources:
+                    duridUserW10DS:
+                        #enabled: true
+                        url: jdbc:mysql://192.168.101.190:3306/user3?useUnicode=true&characterEncoding=utf-8
+                        userName: root
+                        password: root
+                    duridUserR11DS:
+                        #enabled: true
+                        url: jdbc:mysql://192.168.101.190:3306/user3?useUnicode=true&characterEncoding=utf-8
+                        userName: root
+                        password: root
+                    duridUserR12DS:
+                        #enabled: true
+                        url: jdbc:mysql://192.168.101.190:3306/user3?useUnicode=true&characterEncoding=utf-8
+                        userName: root
+                        password: root
+            shardingSphere:
+                enabled: true
+                shardingDataSources:
+                    shardingUserDS: #这个数据源在sharding中的名称
+                        enabled: false
+                        dataSources:
+                            shardingUserW10DS: duridUserW10DS   
+                            shardingUserR11DS: duridUserR11DS
+                            shardingUserR12DS: duridUserR12DS
+                        dataSourceType:
+                            readwriteSplitting: false
+                            sharding: false
+                        readwriteSplitting:
+                            loadBalancers:
+                                roundRobinLoadBalancer:
+                                    enabled: true
+                                    type: ROUND_ROBIN
+                            dataSourcesRwRule:
+                                shardingUserDS0:    #该sharding数据源中的其中一个读写库数据源，有可能会有多个读写库，例如分片的时候
+                                    enabled: true
+                                    autoAwareDataSourceName: shardingUserW10DS
+                                    writeDataSourceName: shardingUserW10DS
+                                    readDataSourceNames: shardingUserR11DS,shardingUserR12DS
+                                    loadBalancerName: userDBrLoadBalancer
+                        sharding:
+                            shardingAlgorithms:
+                                user-db-inline-algorithm:
+                                    enabled: true
+                                    type: INLINE
+                                    props:   
+                                        algorithm-expression: shardingUserDS$->{id%2}
+                                        allow-range-query-with-inline-sharding: false
+                                user-table-inline-algorithm:
+                                    enabled: true
+                                    type: INLINE
+                                    props:   
+                                        algorithm-expression: user$->{id%2}
+                                        allow-range-query-with-inline-sharding: false
+                            shardingTables:
+                                user:
+                                    enabled: true
+                                    actualDataNodes: shardingUserDS$->{0..1}.user$->{0..1}
+                                    dbSharding:
+                                        enabled: true
+                                        dbShardingColumns: id
+                                        dbShardingStrategyName: STANDARD
+                                        dbShardingAlgorithmName: user-db-inline-algorithm
+                                    tableSharding:
+                                        enabled: true
+                                        tableShardingColumns: id
+                                        tableShardingStrategyName: STANDARD
+                                        tableShardingAlgorithmName: user-table-inline-algorithm
+            mybatis:
+                enabled: true
+                myBatisDataSources:
+                    myBatisUserDS:
+                        dataSourceType: shardingsphere
+                        dataSourceName: shardingUserDS
+                        mapperSqlXmls:
+                            - classpath:org/cat/app/user3/impl/dao/xml/*.xml
+                        mapperBeanPackages:
+                            - org.cat.app.user3.impl.dao.bean
+                        mapperInterfacePackages:
+                            - org.cat.app.user3.impl.dao.mapper
+                        executorType: SIMPLE
+                pagehelper:
+                    enabled: true

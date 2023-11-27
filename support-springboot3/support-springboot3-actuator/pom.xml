@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.cat.support</groupId>
+    <artifactId>support-springboot3</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>support-springboot3-actuator</artifactId>
+  <packaging>jar</packaging>
+  
+  <description>org.cat框架v3.0下用于基于springboot的组件-actuator</description>
+  
+  <dependencies>
+  	<!-- core -->
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-util3</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-exception3</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-web3</artifactId>
+	</dependency>
+	
+	<!-- support-db3 optional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-db3-generator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	<!-- support-id3 optional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-id3-generator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+    <!-- 框架 - springboot - starter - 监控  -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.cat.core</groupId>
+	<artifactId>core-parent3</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>org.cat.support</groupId>
+  <artifactId>support-web3</artifactId>
+  <packaging>pom</packaging>
+  
+  <description>org.cat框架下基于的SpringBoot3项目的扩展 - Web</description>
+  
+  <modules>
+    <module>support-web3-generator</module>
+  </modules>
+  
+  <properties>
+	  <support-web3-generator.version>1.0.0-SNAPSHOT</support-web3-generator.version>
+  	  <support-id3.version>1.0.0-SNAPSHOT</support-id3.version>
+  </properties>
+  
+	<!-- <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+		
+		<resources>
+			<resource>
+				<directory>${project.build.sourceDirectory}</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources/</directory>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+	</build>
+	
+  <profiles>
+  	<profile>
+  		<id>source</id>
+  		<activation>
+  			<property>
+  				<name>source</name>
+  				<value>true</value>
+  			</property>
+  		</activation>
+  		<build>
+  			<plugins>
+  				<plugin>
+  					<groupId>org.apache.maven.plugins</groupId>
+  					<artifactId>maven-source-plugin</artifactId>
+  					<configuration>
+  						<attach>true</attach>
+  					</configuration>
+  					<executions>
+  						<execution>
+  							<phase>verify</phase>
+  							<goals>
+  								<goal>jar-no-fork</goal>
+  							</goals>
+  						</execution>
+  					</executions>
+  				</plugin>
+  			</plugins>
+  		</build>
+  	</profile>
+  	<profile>
+		<id>javadoc</id>
+		<activation>
+			<property>
+				<name>javadoc</name>
+				<value>true</value>
+			</property>
+		</activation>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<tags>
+							<tag>
+								<name>date</name>
+								<placement>a</placement>
+								<head>时间:</head>
+							</tag>
+							<tag>
+								<name>description</name>
+								<placement>a</placement>
+								<head>描述:</head>
+							</tag>
+						</tags>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<charset>${project.build.charset}</charset>
+						<aggregate>true</aggregate>将maven module中的所有doc集中到parent的doc中
+						<additionalparam>-Xdoclint:none</additionalparam>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+  </profiles> -->
+  
+  <dependencyManagement>
+  	<dependencies>
+  		<!-- 自己 -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-web3-generator</artifactId>
+			<version>${support-web3-generator.version}</version>
+		</dependency>
+		
+		<!-- core -->
+		
+		<!-- support -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-id3</artifactId>
+			<version>${support-id3.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+
+</project>

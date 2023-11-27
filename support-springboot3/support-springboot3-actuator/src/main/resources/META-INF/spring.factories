@@ -1,0 +1,3 @@
+#ApplicationContextInitializer
+org.springframework.context.ApplicationContextInitializer=\
+org.cat.support.springboot3.actuator.config.ActuatorPropertySourceBootstrapConfiguration

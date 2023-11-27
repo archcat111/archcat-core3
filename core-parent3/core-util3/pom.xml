@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.cat.core</groupId>
+    <artifactId>core-parent3</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>core-util3</artifactId>
+  <packaging>jar</packaging>
+
+  <name>core-util3</name>
+
+  <dependencies>
+  
+  	<!-- maven工具 -->
+  	<dependency>
+		<groupId>org.apache.maven</groupId>
+		<artifactId>maven-model</artifactId>
+	</dependency>
+  
+  	<!-- 工具类 基础 -->
+    <dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>commons-codec</groupId>
+		<artifactId>commons-codec</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>commons-collections</groupId>
+		<artifactId>commons-collections</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>commons-lang</groupId>
+		<artifactId>commons-lang</artifactId>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-collections4</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-pool2</artifactId>
+	</dependency>
+	
+	<!-- 工具类 网络 httpclient -->
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient-cache</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpmime</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpcore</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpcore-nio</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>cn.hutool</groupId>
+		<artifactId>hutool-core</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>cn.hutool</groupId>
+		<artifactId>hutool-json</artifactId>
+	</dependency>
+	<!-- 工具类 网络 netty -->
+	<dependency>
+		<groupId>io.netty</groupId>
+		<artifactId>netty-all</artifactId>
+	</dependency>
+	<!-- 工具类 数据结构 JSON -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-core</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-annotations</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.dataformat</groupId>
+		<artifactId>jackson-dataformat-yaml</artifactId>
+	</dependency><dependency>
+		<groupId>com.fasterxml.jackson.datatype</groupId>
+		<artifactId>jackson-datatype-jsr310</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.fasterxml.jackson.jaxrs</groupId>
+		<artifactId>jackson-jaxrs-json-provider</artifactId>
+	</dependency>
+	<!-- 工具类 数据结构 YAML -->
+	<dependency>
+		<groupId>org.yaml</groupId>
+		<artifactId>snakeyaml</artifactId>
+	</dependency>
+	
+	<!-- 工具类 序列化 -->
+	<dependency>
+		<groupId>org.jboss.marshalling</groupId><!-- 可选 -->
+		<artifactId>jboss-marshalling</artifactId>
+		<optional>true</optional>
+	</dependency>
+	<dependency>
+		<groupId>org.jboss.marshalling</groupId><!-- 可选 -->
+		<artifactId>jboss-marshalling-serial</artifactId>
+		<optional>true</optional>
+	</dependency>
+	<dependency>
+		<groupId>com.caucho</groupId><!-- 可选 -->
+		<artifactId>hessian</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- 工具类 AOP&字节码处理 -->
+    <dependency>
+		<groupId>org.javassist</groupId><!-- 可选 -->
+		<artifactId>javassist</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- 工具类 图片&二维码 -->
+	<dependency>
+		<groupId>net.coobird</groupId><!-- 可选 -->
+		<artifactId>thumbnailator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	<dependency>
+        <groupId>com.google.zxing</groupId><!-- 可选 -->
+        <artifactId>core</artifactId>
+        <optional>true</optional>
+     </dependency>
+     <dependency>
+		<groupId>com.google.zxing</groupId><!-- 可选 -->
+		<artifactId>javase</artifactId>
+		<optional>true</optional>
+	 </dependency>
+	
+	<!-- 工具类 其他 -->
+	<dependency>
+		<groupId>com.google.guava</groupId>
+		<artifactId>guava</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId><!-- 可选 -->
+		<artifactId>poi</artifactId>
+		<optional>true</optional>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId><!-- 可选 -->
+		<artifactId>poi-excelant</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+  </dependencies>
+
+</project>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-springcloud3</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>support-springcloud3-starter</artifactId>
+	<packaging>jar</packaging>
+
+	<description>org.cat框架v3.0下用于基于springcloud的组件自动配置</description>
+
+	<dependencies>
+		<!-- core -->
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-util3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-exception3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-web3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.core</groupId>
+			<artifactId>core-web3-log</artifactId>
+		</dependency>
+		
+		<!-- support -->
+		<dependency>
+			<groupId>org.cat.support</groupId><!-- 目前在support-springcloud3-gateway中使用 -->
+			<artifactId>support-security3-generator-session</artifactId>
+			<optional>true</optional>
+			<exclusions>
+				<exclusion>
+					<groupId>redis.clients</groupId>
+					<artifactId>jedis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- support-springboot3 optional -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springboot3-starter</artifactId>
+		</dependency>
+		
+		
+		<!-- support-springcloud3 optional -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springcloud3-nacos</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springcloud3-gateway</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springcloud3-web</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
+		<!-- 框架 - springboot - starter - 监控  -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId><!-- optional -->
+	        <artifactId>spring-boot-starter-actuator</artifactId>
+	        <optional>true</optional>
+	    </dependency>
+		
+		<!-- Spring Cloud -->
+		<dependency>
+	     	<groupId>com.alibaba.cloud</groupId>
+	     	<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+	     	<exclusions>
+	            <exclusion>
+	                <groupId>org.springframework.cloud</groupId>
+	                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+	            </exclusion>
+	        </exclusions>
+	     	<optional>true</optional>
+	 	</dependency>
+	 	<dependency>
+		    <groupId>com.alibaba.cloud</groupId>
+		    <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+		    <optional>true</optional>
+		</dependency>
+		<!-- Feign -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-loadbalancer</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		
+	</dependencies>
+</project>

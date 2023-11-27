@@ -1,0 +1,44 @@
+cat:
+   support3: 
+      id: 
+         enabled: true   #默认值为false
+         generators: 
+            <exceptionIdGenerator>: 
+               #enabled: true   #默认值为true
+               type: snowflake
+               deltaSecondBits: 28  
+               workerIdBits: 22
+               sequenceBits: 13
+               workerIdType: auto
+               startDateStr: "2021-10-20" 
+            <exceptionIdGenerator1>: 
+               #enabled: true   #默认值为true
+               type: pool-snowflake
+               deltaSecondBits: 28   #默认值28
+               workerIdBits: 22   #默认值22
+               sequenceBits: 13   #默认值13
+               workerIdType: auto   #默认值auto
+               startDateStr: "2021-10-20"   #默认值"2021-10-20"
+               poolSizeBoostPower: 3   #默认值3
+               poolPaddingThresholdPercentage: 50   #默认值50
+               usingSchedule: true   #默认值true
+               scheduleInterval: 5*60L   #默认值5*60L
+            <auditIdGenerator3>: 
+               #enabled: true   #默认值为true
+               type: uuid
+      web:
+         log:
+            enabled: true
+            audit:
+               enabled: true
+               logIdGeneratorName: <auditIdGenerator3>
+               out:
+                  - local
+                  - mySql
+                  - kafka
+            event:
+               enabled: true
+               logIdGeneratorName: <auditIdGenerator3>
+               out:
+                  - local
+         

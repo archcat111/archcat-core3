@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.cat.core</groupId>
+	<artifactId>core-parent3</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<relativePath/>
+  </parent>
+  
+  <groupId>org.cat.support</groupId>
+  <artifactId>support-springboot3</artifactId>
+  <packaging>pom</packaging>
+  
+  <description>提供SpringBoot的支持，以及大量自定义的基于SpringBoot的插件</description>
+  
+  <modules>
+  	<module>support-springboot3-starter</module>
+    <module>support-springboot3-actuator</module>
+  </modules>
+  
+	<properties>
+		<support-springboot3-starter.version>1.0.0-SNAPSHOT</support-springboot3-starter.version>
+		<support-springboot3-actuator.version>1.0.0-SNAPSHOT</support-springboot3-actuator.version>
+		
+		<!-- maven插件 -->
+		<spring-boot-maven-plugin.version>2.5.14</spring-boot-maven-plugin.version>
+		
+		<!-- core -->
+		<springboot.version>2.5.14</springboot.version>
+
+		<!-- support -->
+		<support-id3.version>1.0.0-SNAPSHOT</support-id3.version>
+		<support-exception3.version>1.0.0-SNAPSHOT</support-exception3.version>
+		<support-db3.version>1.0.0-SNAPSHOT</support-db3.version>
+		<support-search3.version>1.0.0-SNAPSHOT</support-search3.version>
+		<support-web3.version>1.0.0-SNAPSHOT</support-web3.version>
+		<support-storage3.version>1.0.0-SNAPSHOT</support-storage3.version>
+		
+		<support-log3.version>1.0.0-SNAPSHOT</support-log3.version>
+		<support-security3.version>1.0.0-SNAPSHOT</support-security3.version>
+
+	</properties>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring-boot-maven-plugin.version}</version>
+					<configuration>
+						<executable>true</executable>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+								<goal>build-info</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+		        	<groupId>pl.project13.maven</groupId>
+		        	<artifactId>git-commit-id-plugin</artifactId>
+		        	<executions>
+		        		<execution>
+		        			<goals>
+		        				<goal>revision</goal>
+		        			</goals>
+		        		</execution>
+		        	</executions>
+		        	<configuration>
+		        		<verbose>true</verbose>
+		        		<dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
+		        		<generateGitPropertiesFile>true</generateGitPropertiesFile>
+		        		<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+		        	</configuration>
+		        </plugin>
+			</plugins>
+		</pluginManagement>
+		
+		<plugins>
+		</plugins>
+	</build>
+	
+  
+  <dependencyManagement>
+  	<dependencies>
+  		<!-- 自己 -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springboot3-starter</artifactId>
+			<version>${support-springboot3-starter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springboot3-actuator</artifactId>
+			<version>${support-springboot3-actuator.version}</version>
+		</dependency>
+		
+		<!-- spring boot -->
+		<dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-dependencies</artifactId>
+           <version>${springboot.version}</version>
+           <type>pom</type>
+           <scope>import</scope>
+       </dependency>
+       
+       <!-- support -->
+       <dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-id3</artifactId>
+			<version>${support-id3.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-exception3</artifactId>
+			<version>${support-exception3.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+       <dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-db3</artifactId>
+			<version>${support-db3.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-search3</artifactId>
+			<version>${support-search3.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-web3</artifactId>
+			<version>${support-web3.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+       <dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-log3</artifactId>
+			<version>${support-log3.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-security3</artifactId>
+			<version>${support-security3.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-storage3</artifactId>
+			<version>${support-storage3.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		
+  	</dependencies>
+  	
+  </dependencyManagement>
+  
+</project>

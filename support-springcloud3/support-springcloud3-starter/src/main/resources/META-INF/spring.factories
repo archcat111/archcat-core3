@@ -1,0 +1,11 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.cat.support.springcloud3.starter.nacos.NacosDiscoveryPlusAutoConfiguration,\
+org.cat.support.springcloud3.starter.mvc.CloudWebMvcAutoConfiguration,\
+org.cat.support.springcloud3.starter.feign.ArchFeignAutoConfiguration,\
+org.cat.support.springcloud3.starter.gateway.ArchGatewaySessionAutoConfiguration,\
+org.cat.support.springcloud3.starter.gateway.ArchGatewayLoginStatusVerifyAutoConfiguration,\
+org.cat.support.springcloud3.starter.gateway.ArchGatewayUserGeneratorAutoConfiguration,\
+org.cat.support.springcloud3.starter.gateway.ArchGatewayCorsAutoConfiguration
+
+#org.springframework.cloud.bootstrap.BootstrapConfiguration=\

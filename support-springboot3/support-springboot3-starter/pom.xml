@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.cat.support</groupId>
+    <artifactId>support-springboot3</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>support-springboot3-starter</artifactId>
+  <packaging>jar</packaging>
+  
+  <description>org.cat框架v3.0下用于基于springboot的组件自动配置</description>
+  
+  <dependencies>
+  	<!-- Core -->
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-util3</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-exception3</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-web3</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.core</groupId>
+		<artifactId>core-web3-log</artifactId>
+	</dependency>
+	
+	<!-- Support-springboot aoptional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-springboot3-actuator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- Support-id3 optional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-id3-generator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- Support-exception3 optional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-exception3-generator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- Support-db3 optional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-db3-generator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- Support-search3 optional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-search3-generator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- Support-web3 optional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-web3-generator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- Support-log3 optional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-log3-generator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- Support-security optional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-security3-generator-password</artifactId>
+		<optional>true</optional>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-security3-generator-session</artifactId>
+		<optional>true</optional>
+	</dependency>
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-security3-generator-spring</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- Support-storage3 optional -->
+	<dependency>
+		<groupId>org.cat.support</groupId>
+		<artifactId>support-storage3-generator</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+    <!-- 工具类 基础 -->
+	<dependency>
+		<groupId>commons-fileupload</groupId>
+		<artifactId>commons-fileupload</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- 框架 - spring -->
+	<dependency>
+		<groupId>org.springframework</groupId><!-- optional -->
+		<artifactId>spring-websocket</artifactId>
+		<optional>true</optional>
+	</dependency>
+    
+    <!-- 框架 - springboot - starter - autoconfigure -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-autoconfigure</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId><!-- optional -->
+        <artifactId>spring-boot-starter-web</artifactId>
+        <optional>true</optional>
+    </dependency>
+    
+    <!-- 框架 - swagger optional -->
+    <dependency>
+	   <groupId>io.springfox</groupId>
+	   <artifactId>springfox-boot-starter</artifactId>
+	   <optional>true</optional>
+	</dependency>
+	
+	<!-- 框架 - shardingsphere-jdbc 注册中心 optional -->
+	<dependency>
+	    <groupId>org.apache.shardingsphere</groupId><!-- 构建分布式治理时，需要引入此模块 -->
+	    <artifactId>shardingsphere-jdbc-governance</artifactId>
+	    <optional>true</optional>
+	</dependency>
+	
+	<!-- 框架 - mybatis-plus optional -->
+	<dependency>
+	    <groupId>com.baomidou</groupId>
+	    <artifactId>mybatis-plus</artifactId>
+	    <optional>true</optional>
+	</dependency>
+	
+	<!-- 中间件 - redis optional -->
+	<dependency>
+        <groupId>org.springframework.boot</groupId> <!-- 会引入lettuce，jedis不支持reactive -->
+        <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        <optional>true</optional>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis</artifactId>
+        <optional>true</optional>
+    </dependency>
+    <dependency>
+		<groupId>org.springframework.data</groupId>
+		<artifactId>spring-data-redis</artifactId>
+		<optional>true</optional>
+	</dependency>
+	<dependency>
+		<groupId>redis.clients</groupId>
+		<artifactId>jedis</artifactId>
+		<optional>true</optional>
+	</dependency>
+    
+    <!-- 中间件 - Minio optional -->
+    <dependency>
+		<groupId>io.minio</groupId>
+		<artifactId>minio</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- 中间件 Elastic Search optional -->
+	<dependency>
+		<groupId>co.elastic.clients</groupId>
+        <artifactId>elasticsearch-java</artifactId>
+        <optional>true</optional>
+	</dependency>
+	
+  </dependencies>
+</project>

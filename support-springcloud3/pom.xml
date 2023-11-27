@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.cat.support</groupId>
+	<artifactId>support-springboot3</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<relativePath/>
+  </parent>
+  
+  <artifactId>support-springcloud3</artifactId>
+  <packaging>pom</packaging>
+  
+  <description>提供SpringCloud的支持，以及大量自定义的基于SpringCloud的扩展</description>
+  
+  <modules>
+  	<module>support-springcloud3-starter</module>
+    <module>support-springcloud3-nacos</module>
+    <module>support-springcloud3-gateway</module>
+    <module>support-springcloud3-web</module>
+  </modules>
+  
+	<properties>
+		<support-springcloud3-starter.version>1.0.0-SNAPSHOT</support-springcloud3-starter.version>
+		<support-springcloud3-nacos.version>1.0.0-SNAPSHOT</support-springcloud3-nacos.version>
+		<support-springcloud3-gateway.version>1.0.0-SNAPSHOT</support-springcloud3-gateway.version>
+		<support-springcloud3-web.version>1.0.0-SNAPSHOT</support-springcloud3-web.version>
+		
+		<!-- core -->
+		<springcloud.version>2020.0.6</springcloud.version>
+		<springcloud-alibaba.version>2.2.9.RELEASE</springcloud-alibaba.version>
+
+		<!-- support -->
+		<support-springboot3.version>1.0.0-SNAPSHOT</support-springboot3.version>
+
+	</properties>
+	
+  <dependencyManagement>
+  	<dependencies>
+  		<!-- 自己 -->
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springcloud3-starter</artifactId>
+			<version>${support-springcloud3-starter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springcloud3-nacos</artifactId>
+			<version>${support-springcloud3-nacos.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springcloud3-gateway</artifactId>
+			<version>${support-springcloud3-gateway.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.cat.support</groupId>
+			<artifactId>support-springcloud3-web</artifactId>
+			<version>${support-springcloud3-web.version}</version>
+		</dependency>
+		
+		<!-- spring cloud -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-dependencies</artifactId>
+			<version>${springcloud.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		
+		<dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+            <version>${springcloud-alibaba.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+            <!--
+            <exclusions>
+		        <exclusion>
+		            <groupId>com.alibaba.nacos</groupId>
+		            <artifactId>nacos-client</artifactId>
+		        </exclusion>
+		    </exclusions>
+		    -->
+        </dependency>
+        
+        <!--
+        <dependency>
+		    <groupId>com.alibaba.nacos</groupId>
+		    <artifactId>nacos-client</artifactId>
+		    <version>2.2.0</version>
+		</dependency>
+		-->
+       
+  	</dependencies>
+  	
+  </dependencyManagement>
+  
+  <dependencies>
+	<dependency><!-- 如果应用服务使用分布式Configer启动会失败，需要引入该jar -->
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-bootstrap</artifactId>
+	</dependency>
+  </dependencies>
+  
+</project>

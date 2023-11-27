@@ -1,0 +1,16 @@
+org.cat.support.springboot3.starter.actuator.EndpointAutoConfiguration
+org.cat.support.springboot3.starter.actuator.HealthIndicatorAutoConfiguration
+
+org.cat.support.springboot3.starter.db.druid.DruidAutoConfiguration
+	org.cat.support.springboot3.starter.db.mybatis.MyBatisAutoConfiguration
+	org.cat.support.springboot3.starter.db.sharding.ShardingAutoConfiguration
+		org.cat.support.springboot3.starter.db.mybatis.MyBatisAutoConfiguration
+
+org.cat.support.springboot3.starter.id.IdAutoconfiguration
+	org.cat.support.springboot3.starter.exception.ExceptionAutoConfiguration
+		org.cat.support.springboot3.starter.web.WebMvcAutoConfiguration
+			org.cat.support.springboot3.starter.web.security.SecurityAutoSpringServletConfiguration
+			org.cat.support.springboot3.starter.web.security.SecurityAutoWebfluxConfiguration
+	org.cat.support.springboot3.starter.web.log.WebLogAutoConfiguration
+		org.cat.support.springboot3.starter.web.log.audit.WebLogAuditAutoConfiguration
+		org.cat.support.springboot3.starter.web.log.event.WebLogEventAutoConfiguration

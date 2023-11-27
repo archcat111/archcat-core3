@@ -1,0 +1,7 @@
+cat:
+   support3:
+      exception:
+         enabled: true   #默认值为true
+         idGeneratorName: <idGeneratorName> #在cat.support3.id中配置的idGenerator的名称
+         projectCode: -1 #默认值为ExceptionConstants.ParamValue.PROJECT_CODE_NOT_WRITE = -1，可以自定义一个projectCode的编号保持唯一
+         codeGeneratorType: default #默认值为ExceptionConfigConstants.CodeGenerator.DEFAULT
